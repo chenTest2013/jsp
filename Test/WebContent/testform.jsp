@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
     <% //request.setCharacterEncoding("UTF-8");
        //response.setCharacterEncoding("UTF-8");
+       System.out.println("test1:"+request.getCharacterEncoding());
+       System.out.println("test2:"+request.getCharacterEncoding());
     %>
 <!DOCTYPE html>
 <html>

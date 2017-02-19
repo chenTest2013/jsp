@@ -30,13 +30,16 @@ public class Encoding implements Filter{
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		// 输出站点名称
-		System.out.println("站点网址：cjava.cn");
+		System.out.println("站点网址：cjava.cn:"+request.getCharacterEncoding());
 		// 把请求传回过滤链
+		HttpServletRequest req = (HttpServletRequest)request;
+		System.out.println("A:"+req.getCharacterEncoding());  
 		request.setCharacterEncoding(charset);
 		response.setCharacterEncoding(charset);
+		System.out.println("设置后:"+request.getCharacterEncoding());
 		//新增加的代码          
-        HttpServletRequest req = (HttpServletRequest)request;  
-          
+		System.out.println("B:"+req.getCharacterEncoding());    
+		
         if(req.getMethod().equalsIgnoreCase("get"))  
         {   
         	System.out.println("get方法："+charset);
