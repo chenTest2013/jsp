@@ -9,4 +9,8 @@
 缺点：当配置多个过滤器时无法配置顺序(web.xml 中的 filter-mapping 元素的顺序决定了 Web 容器应用过滤器到 Servlet 的顺序)
 4. 再来，用Lister（可以用注解配置Lister，无需修改web.xml）来动态注册Filter，不用注解注册Filter，这样完美解决编码问题，总共增加几个java文件.     
 ## 注意    
-用Lister注册Filter是，所有的Filter都不能用注解（都需要用Lister注册Filter），否则顺序无效
+用Lister注册Filter是，所有的Filter都不能用注解（都需要用Lister注册Filter），否则顺序无效  
+## 总结   
+
+对于get方式，tomcat7 request.getParameter(arg0) 获取参数前会用ISO-8859-1解码从客户端发来的参数，但通常从客户端发来的参数不是用ISO-8859-1编码的，这就是乱码产生的原因  
+ tomcat8 request.getParameter(arg0) 获取参数前会用UTF-8解码从客户端发来的参数客户端发来的参数若用UTF-8编码，就不会。
